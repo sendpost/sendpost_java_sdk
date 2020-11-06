@@ -59,7 +59,7 @@ No authorization required
 
 <a name="alertRouterCreateAlert"></a>
 # **alertRouterCreateAlert**
-> ModelsAlert alertRouterCreateAlert(xAccountApiKey, body)
+> ModelsAlertResponse alertRouterCreateAlert(xAccountApiKey, body)
 
 
 
@@ -76,7 +76,7 @@ AccountalertApi apiInstance = new AccountalertApi();
 String xAccountApiKey = "xAccountApiKey_example"; // String | Account API Key
 ModelsAlertRequest body = new ModelsAlertRequest(); // ModelsAlertRequest | The List to br sent
 try {
-    ModelsAlert result = apiInstance.alertRouterCreateAlert(xAccountApiKey, body);
+    ModelsAlertResponse result = apiInstance.alertRouterCreateAlert(xAccountApiKey, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AccountalertApi#alertRouterCreateAlert");
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelsAlert**](ModelsAlert.md)
+[**ModelsAlertResponse**](ModelsAlertResponse.md)
 
 ### Authorization
 

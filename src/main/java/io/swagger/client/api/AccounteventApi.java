@@ -670,6 +670,178 @@ public class AccounteventApi {
         return call;
     }
     /**
+     * Build call for eventRouterGetAllEventsFromAAccountForAGivenTimeRange
+     * @param xAccountApiKey Account API Key (required)
+     * @param offset offset (optional)
+     * @param limit limit (optional)
+     * @param search search term (optional)
+     * @param type search type (optional)
+     * @param from from date (optional)
+     * @param to to date (optional)
+     * @param source data source from which to get timestamp keys subaccount or ip (optional)
+     * @param sourceId source id from which to get timestamp keys subaccount or ip (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call eventRouterGetAllEventsFromAAccountForAGivenTimeRangeCall(String xAccountApiKey, Long offset, Long limit, String search, String type, String from, String to, String source, String sourceId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/account/event/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (offset != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+        if (search != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("search", search));
+        if (type != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("type", type));
+        if (from != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("from", from));
+        if (to != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("to", to));
+        if (source != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("source", source));
+        if (sourceId != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("sourceId", sourceId));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xAccountApiKey != null)
+        localVarHeaderParams.put("X-Account-ApiKey", apiClient.parameterToString(xAccountApiKey));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call eventRouterGetAllEventsFromAAccountForAGivenTimeRangeValidateBeforeCall(String xAccountApiKey, Long offset, Long limit, String search, String type, String from, String to, String source, String sourceId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'xAccountApiKey' is set
+        if (xAccountApiKey == null) {
+            throw new ApiException("Missing the required parameter 'xAccountApiKey' when calling eventRouterGetAllEventsFromAAccountForAGivenTimeRange(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = eventRouterGetAllEventsFromAAccountForAGivenTimeRangeCall(xAccountApiKey, offset, limit, search, type, from, to, source, sourceId, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * 
+     * Find all events from a account for a given time-range
+     * @param xAccountApiKey Account API Key (required)
+     * @param offset offset (optional)
+     * @param limit limit (optional)
+     * @param search search term (optional)
+     * @param type search type (optional)
+     * @param from from date (optional)
+     * @param to to date (optional)
+     * @param source data source from which to get timestamp keys subaccount or ip (optional)
+     * @param sourceId source id from which to get timestamp keys subaccount or ip (optional)
+     * @return List&lt;ModelsQEvent&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ModelsQEvent> eventRouterGetAllEventsFromAAccountForAGivenTimeRange(String xAccountApiKey, Long offset, Long limit, String search, String type, String from, String to, String source, String sourceId) throws ApiException {
+        ApiResponse<List<ModelsQEvent>> resp = eventRouterGetAllEventsFromAAccountForAGivenTimeRangeWithHttpInfo(xAccountApiKey, offset, limit, search, type, from, to, source, sourceId);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * Find all events from a account for a given time-range
+     * @param xAccountApiKey Account API Key (required)
+     * @param offset offset (optional)
+     * @param limit limit (optional)
+     * @param search search term (optional)
+     * @param type search type (optional)
+     * @param from from date (optional)
+     * @param to to date (optional)
+     * @param source data source from which to get timestamp keys subaccount or ip (optional)
+     * @param sourceId source id from which to get timestamp keys subaccount or ip (optional)
+     * @return ApiResponse&lt;List&lt;ModelsQEvent&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ModelsQEvent>> eventRouterGetAllEventsFromAAccountForAGivenTimeRangeWithHttpInfo(String xAccountApiKey, Long offset, Long limit, String search, String type, String from, String to, String source, String sourceId) throws ApiException {
+        com.squareup.okhttp.Call call = eventRouterGetAllEventsFromAAccountForAGivenTimeRangeValidateBeforeCall(xAccountApiKey, offset, limit, search, type, from, to, source, sourceId, null, null);
+        Type localVarReturnType = new TypeToken<List<ModelsQEvent>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Find all events from a account for a given time-range
+     * @param xAccountApiKey Account API Key (required)
+     * @param offset offset (optional)
+     * @param limit limit (optional)
+     * @param search search term (optional)
+     * @param type search type (optional)
+     * @param from from date (optional)
+     * @param to to date (optional)
+     * @param source data source from which to get timestamp keys subaccount or ip (optional)
+     * @param sourceId source id from which to get timestamp keys subaccount or ip (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call eventRouterGetAllEventsFromAAccountForAGivenTimeRangeAsync(String xAccountApiKey, Long offset, Long limit, String search, String type, String from, String to, String source, String sourceId, final ApiCallback<List<ModelsQEvent>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = eventRouterGetAllEventsFromAAccountForAGivenTimeRangeValidateBeforeCall(xAccountApiKey, offset, limit, search, type, from, to, source, sourceId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<ModelsQEvent>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for eventRouterGetAllEventsOfAAccountFromASpecificNode
      * @param xAccountApiKey Account API Key (required)
      * @param progressListener Progress listener

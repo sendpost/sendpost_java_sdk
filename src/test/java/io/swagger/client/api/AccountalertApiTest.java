@@ -15,8 +15,8 @@ package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
 import io.swagger.client.model.Alert;
-import io.swagger.client.model.ModelsAlert;
 import io.swagger.client.model.ModelsAlertRequest;
+import io.swagger.client.model.ModelsAlertResponse;
 import io.swagger.client.model.ModelsCountStat;
 import io.swagger.client.model.ModelsDetailedAlert;
 import org.junit.Test;
@@ -65,7 +65,7 @@ public class AccountalertApiTest {
     public void alertRouterCreateAlertTest() throws ApiException {
         String xAccountApiKey = null;
         ModelsAlertRequest body = null;
-        ModelsAlert response = api.alertRouterCreateAlert(xAccountApiKey, body);
+        ModelsAlertResponse response = api.alertRouterCreateAlert(xAccountApiKey, body);
 
         // TODO: test validations
     }

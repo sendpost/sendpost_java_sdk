@@ -28,8 +28,8 @@ import java.io.IOException;
 
 
 import io.swagger.client.model.Alert;
-import io.swagger.client.model.ModelsAlert;
 import io.swagger.client.model.ModelsAlertRequest;
+import io.swagger.client.model.ModelsAlertResponse;
 import io.swagger.client.model.ModelsCountStat;
 import io.swagger.client.model.ModelsDetailedAlert;
 
@@ -264,11 +264,11 @@ public class AccountalertApi {
      * create an alert
      * @param xAccountApiKey Account API Key (required)
      * @param body The List to br sent (required)
-     * @return ModelsAlert
+     * @return ModelsAlertResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ModelsAlert alertRouterCreateAlert(String xAccountApiKey, ModelsAlertRequest body) throws ApiException {
-        ApiResponse<ModelsAlert> resp = alertRouterCreateAlertWithHttpInfo(xAccountApiKey, body);
+    public ModelsAlertResponse alertRouterCreateAlert(String xAccountApiKey, ModelsAlertRequest body) throws ApiException {
+        ApiResponse<ModelsAlertResponse> resp = alertRouterCreateAlertWithHttpInfo(xAccountApiKey, body);
         return resp.getData();
     }
 
@@ -277,12 +277,12 @@ public class AccountalertApi {
      * create an alert
      * @param xAccountApiKey Account API Key (required)
      * @param body The List to br sent (required)
-     * @return ApiResponse&lt;ModelsAlert&gt;
+     * @return ApiResponse&lt;ModelsAlertResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ModelsAlert> alertRouterCreateAlertWithHttpInfo(String xAccountApiKey, ModelsAlertRequest body) throws ApiException {
+    public ApiResponse<ModelsAlertResponse> alertRouterCreateAlertWithHttpInfo(String xAccountApiKey, ModelsAlertRequest body) throws ApiException {
         com.squareup.okhttp.Call call = alertRouterCreateAlertValidateBeforeCall(xAccountApiKey, body, null, null);
-        Type localVarReturnType = new TypeToken<ModelsAlert>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelsAlertResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -295,7 +295,7 @@ public class AccountalertApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call alertRouterCreateAlertAsync(String xAccountApiKey, ModelsAlertRequest body, final ApiCallback<ModelsAlert> callback) throws ApiException {
+    public com.squareup.okhttp.Call alertRouterCreateAlertAsync(String xAccountApiKey, ModelsAlertRequest body, final ApiCallback<ModelsAlertResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -317,7 +317,7 @@ public class AccountalertApi {
         }
 
         com.squareup.okhttp.Call call = alertRouterCreateAlertValidateBeforeCall(xAccountApiKey, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ModelsAlert>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelsAlertResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ModelsAccount
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-28T07:50:19.455Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-11-06T12:08:13.160Z")
 
 
 
@@ -38,8 +38,14 @@ public class ModelsAccount {
   @SerializedName("created")
   private Long created = null;
 
+  @SerializedName("currentEmailServiceProvider")
+  private String currentEmailServiceProvider = null;
+
   @SerializedName("id")
   private Long id = null;
+
+  @SerializedName("industry")
+  private String industry = null;
 
   @SerializedName("lock_threshold")
   private Long lockThreshold = null;
@@ -49,6 +55,12 @@ public class ModelsAccount {
 
   @SerializedName("name")
   private String name = null;
+
+  @SerializedName("onboardQAnswered")
+  private Boolean onboardQAnswered = null;
+
+  @SerializedName("sendingVolumePerMonth")
+  private String sendingVolumePerMonth = null;
 
   @SerializedName("url")
   private String url = null;
@@ -89,6 +101,24 @@ public class ModelsAccount {
     this.created = created;
   }
 
+  public ModelsAccount currentEmailServiceProvider(String currentEmailServiceProvider) {
+    this.currentEmailServiceProvider = currentEmailServiceProvider;
+    return this;
+  }
+
+   /**
+   * Get currentEmailServiceProvider
+   * @return currentEmailServiceProvider
+  **/
+  @ApiModelProperty(value = "")
+  public String getCurrentEmailServiceProvider() {
+    return currentEmailServiceProvider;
+  }
+
+  public void setCurrentEmailServiceProvider(String currentEmailServiceProvider) {
+    this.currentEmailServiceProvider = currentEmailServiceProvider;
+  }
+
   public ModelsAccount id(Long id) {
     this.id = id;
     return this;
@@ -105,6 +135,24 @@ public class ModelsAccount {
 
   public void setId(Long id) {
     this.id = id;
+  }
+
+  public ModelsAccount industry(String industry) {
+    this.industry = industry;
+    return this;
+  }
+
+   /**
+   * Get industry
+   * @return industry
+  **/
+  @ApiModelProperty(value = "")
+  public String getIndustry() {
+    return industry;
+  }
+
+  public void setIndustry(String industry) {
+    this.industry = industry;
   }
 
   public ModelsAccount lockThreshold(Long lockThreshold) {
@@ -161,6 +209,42 @@ public class ModelsAccount {
     this.name = name;
   }
 
+  public ModelsAccount onboardQAnswered(Boolean onboardQAnswered) {
+    this.onboardQAnswered = onboardQAnswered;
+    return this;
+  }
+
+   /**
+   * Get onboardQAnswered
+   * @return onboardQAnswered
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isOnboardQAnswered() {
+    return onboardQAnswered;
+  }
+
+  public void setOnboardQAnswered(Boolean onboardQAnswered) {
+    this.onboardQAnswered = onboardQAnswered;
+  }
+
+  public ModelsAccount sendingVolumePerMonth(String sendingVolumePerMonth) {
+    this.sendingVolumePerMonth = sendingVolumePerMonth;
+    return this;
+  }
+
+   /**
+   * Get sendingVolumePerMonth
+   * @return sendingVolumePerMonth
+  **/
+  @ApiModelProperty(value = "")
+  public String getSendingVolumePerMonth() {
+    return sendingVolumePerMonth;
+  }
+
+  public void setSendingVolumePerMonth(String sendingVolumePerMonth) {
+    this.sendingVolumePerMonth = sendingVolumePerMonth;
+  }
+
   public ModelsAccount url(String url) {
     this.url = url;
     return this;
@@ -191,16 +275,20 @@ public class ModelsAccount {
     ModelsAccount modelsAccount = (ModelsAccount) o;
     return Objects.equals(this.apiKey, modelsAccount.apiKey) &&
         Objects.equals(this.created, modelsAccount.created) &&
+        Objects.equals(this.currentEmailServiceProvider, modelsAccount.currentEmailServiceProvider) &&
         Objects.equals(this.id, modelsAccount.id) &&
+        Objects.equals(this.industry, modelsAccount.industry) &&
         Objects.equals(this.lockThreshold, modelsAccount.lockThreshold) &&
         Objects.equals(this.locked, modelsAccount.locked) &&
         Objects.equals(this.name, modelsAccount.name) &&
+        Objects.equals(this.onboardQAnswered, modelsAccount.onboardQAnswered) &&
+        Objects.equals(this.sendingVolumePerMonth, modelsAccount.sendingVolumePerMonth) &&
         Objects.equals(this.url, modelsAccount.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, created, id, lockThreshold, locked, name, url);
+    return Objects.hash(apiKey, created, currentEmailServiceProvider, id, industry, lockThreshold, locked, name, onboardQAnswered, sendingVolumePerMonth, url);
   }
 
 
@@ -211,10 +299,14 @@ public class ModelsAccount {
     
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
+    sb.append("    currentEmailServiceProvider: ").append(toIndentedString(currentEmailServiceProvider)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    industry: ").append(toIndentedString(industry)).append("\n");
     sb.append("    lockThreshold: ").append(toIndentedString(lockThreshold)).append("\n");
     sb.append("    locked: ").append(toIndentedString(locked)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    onboardQAnswered: ").append(toIndentedString(onboardQAnswered)).append("\n");
+    sb.append("    sendingVolumePerMonth: ").append(toIndentedString(sendingVolumePerMonth)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();

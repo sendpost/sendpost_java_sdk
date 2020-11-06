@@ -14,8 +14,12 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
+import java.io.File;
+import io.swagger.client.model.ModelsBulkResponse;
+import io.swagger.client.model.ModelsCleanedList;
 import io.swagger.client.model.ModelsCountStat;
 import io.swagger.client.model.ModelsEValidation;
+import io.swagger.client.model.ModelsEmailList;
 import io.swagger.client.model.ModelsValidation;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -82,6 +86,40 @@ public class AccountvalidationApiTest {
         Long limit = null;
         String search = null;
         List<ModelsValidation> response = api.validationRouterGetAll(xAccountApiKey, offset, limit, search);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Validate Emails In File Asynchronously
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validationRouterValidateEmailBulkTest() throws ApiException {
+        File fileinput = null;
+        String xAccountApiKey = null;
+        ModelsBulkResponse response = api.validationRouterValidateEmailBulk(fileinput, xAccountApiKey);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Validate Email List Synchronously
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validationRouterValidateEmailListTest() throws ApiException {
+        String xAccountApiKey = null;
+        ModelsEmailList body = null;
+        ModelsCleanedList response = api.validationRouterValidateEmailList(xAccountApiKey, body);
 
         // TODO: test validations
     }

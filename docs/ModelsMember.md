@@ -8,7 +8,10 @@ Name | Type | Description | Notes
 **id** | **Long** |  |  [optional]
 **isForbidden** | **Boolean** |  |  [optional]
 **isVerified** | **Boolean** |  |  [optional]
+**companyName** | **String** |  |  [optional]
 **created** | **Long** |  |  [optional]
+**name** | **String** |  |  [optional]
+**phoneNumber** | **String** |  |  [optional]
 
 
 

@@ -2,7 +2,7 @@
 
 SendPost API
 - API version: 1.0.0
-  - Build date: 2020-10-28T07:50:19.455Z
+  - Build date: 2020-11-06T12:08:13.160Z
 
 SendPost API to send transactional emails reliably
 
@@ -113,6 +113,7 @@ Class | Method | HTTP request | Description
 *AccounteventApi* | [**eventRouterCountAllEventsFromANodeOfASubAccountForAGivenTimeRange**](docs/AccounteventApi.md#eventRouterCountAllEventsFromANodeOfASubAccountForAGivenTimeRange) | **GET** /account/event/node/count | 
 *AccounteventApi* | [**eventRouterGet**](docs/AccounteventApi.md#eventRouterGet) | **GET** /account/event/{eventId} | 
 *AccounteventApi* | [**eventRouterGetAllEventTimestampKeysOfASubAccountFromASpecificNodeForAGivenTimeRange**](docs/AccounteventApi.md#eventRouterGetAllEventTimestampKeysOfASubAccountFromASpecificNodeForAGivenTimeRange) | **GET** /account/event/node/timestampkeys | 
+*AccounteventApi* | [**eventRouterGetAllEventsFromAAccountForAGivenTimeRange**](docs/AccounteventApi.md#eventRouterGetAllEventsFromAAccountForAGivenTimeRange) | **GET** /account/event/ | 
 *AccounteventApi* | [**eventRouterGetAllEventsOfAAccountFromASpecificNode**](docs/AccounteventApi.md#eventRouterGetAllEventsOfAAccountFromASpecificNode) | **POST** /account/event/node | 
 *AccounteventApi* | [**eventRouterGetEventInNode**](docs/AccounteventApi.md#eventRouterGetEventInNode) | **GET** /account/event/node/{eventId} | 
 *AccountintegrationApi* | [**accountIntegrationRouterCount**](docs/AccountintegrationApi.md#accountIntegrationRouterCount) | **GET** /account/integration/count | 
@@ -123,6 +124,9 @@ Class | Method | HTTP request | Description
 *AccountintegrationApi* | [**accountIntegrationRouterGetAll**](docs/AccountintegrationApi.md#accountIntegrationRouterGetAll) | **GET** /account/integration/ | 
 *AccountintegrationApi* | [**accountIntegrationRouterGetMonitoredIPStats**](docs/AccountintegrationApi.md#accountIntegrationRouterGetMonitoredIPStats) | **GET** /account/integration/glockapps/monitor/stat/{ipid} | 
 *AccountintegrationApi* | [**accountIntegrationRouterUpdate**](docs/AccountintegrationApi.md#accountIntegrationRouterUpdate) | **PUT** /account/integration/{itype} | 
+*AccountinvitationApi* | [**invitationRouterCreate**](docs/AccountinvitationApi.md#invitationRouterCreate) | **POST** /account/invitation/ | 
+*AccountinvitationApi* | [**invitationRouterDelete**](docs/AccountinvitationApi.md#invitationRouterDelete) | **DELETE** /account/invitation/{invitationId} | 
+*AccountinvitationApi* | [**invitationRouterGetAll**](docs/AccountinvitationApi.md#invitationRouterGetAll) | **GET** /account/invitation/ | 
 *AccountipApi* | [**iPRouterAllocateIP**](docs/AccountipApi.md#iPRouterAllocateIP) | **POST** /account/ip/allocate | 
 *AccountipApi* | [**iPRouterCount**](docs/AccountipApi.md#iPRouterCount) | **GET** /account/ip/count | 
 *AccountipApi* | [**iPRouterDelete**](docs/AccountipApi.md#iPRouterDelete) | **DELETE** /account/ip/{ipid} | 
@@ -174,10 +178,11 @@ Class | Method | HTTP request | Description
 *AccountsubaccountApi* | [**subAccountRouterGetAll**](docs/AccountsubaccountApi.md#subAccountRouterGetAll) | **GET** /account/subaccount/ | 
 *AccountsubaccountApi* | [**subAccountRouterUpdate**](docs/AccountsubaccountApi.md#subAccountRouterUpdate) | **PUT** /account/subaccount/{subAccountId} | 
 *AccountvalidateApi* | [**validateRouterValidateEmailBulk**](docs/AccountvalidateApi.md#validateRouterValidateEmailBulk) | **POST** /account/validate/bulk | 
-*AccountvalidateApi* | [**validateRouterValidateEmailList**](docs/AccountvalidateApi.md#validateRouterValidateEmailList) | **POST** /account/validate/ | 
 *AccountvalidationApi* | [**validationRouterCount**](docs/AccountvalidationApi.md#validationRouterCount) | **GET** /account/validation/count | 
 *AccountvalidationApi* | [**validationRouterDeleteValidation**](docs/AccountvalidationApi.md#validationRouterDeleteValidation) | **DELETE** /account/validation/ | 
 *AccountvalidationApi* | [**validationRouterGetAll**](docs/AccountvalidationApi.md#validationRouterGetAll) | **GET** /account/validation/ | 
+*AccountvalidationApi* | [**validationRouterValidateEmailBulk**](docs/AccountvalidationApi.md#validationRouterValidateEmailBulk) | **POST** /account/validation/bulk | 
+*AccountvalidationApi* | [**validationRouterValidateEmailList**](docs/AccountvalidationApi.md#validationRouterValidateEmailList) | **POST** /account/validation/ | 
 *AccountwebhookApi* | [**accountWebhookRouterCount**](docs/AccountwebhookApi.md#accountWebhookRouterCount) | **GET** /account/webhook/count | 
 *AccountwebhookApi* | [**accountWebhookRouterCreate**](docs/AccountwebhookApi.md#accountWebhookRouterCreate) | **POST** /account/webhook/ | 
 *AccountwebhookApi* | [**accountWebhookRouterCreateAccountWebhookInAccountWebhookCache**](docs/AccountwebhookApi.md#accountWebhookRouterCreateAccountWebhookInAccountWebhookCache) | **POST** /account/webhook/cache | 
@@ -186,6 +191,13 @@ Class | Method | HTTP request | Description
 *AccountwebhookApi* | [**accountWebhookRouterGet**](docs/AccountwebhookApi.md#accountWebhookRouterGet) | **GET** /account/webhook/{webhookId} | 
 *AccountwebhookApi* | [**accountWebhookRouterGetAll**](docs/AccountwebhookApi.md#accountWebhookRouterGetAll) | **GET** /account/webhook/ | 
 *AccountwebhookApi* | [**accountWebhookRouterUpdate**](docs/AccountwebhookApi.md#accountWebhookRouterUpdate) | **PUT** /account/webhook/{webhookId} | 
+*AuthApi* | [**authRouterCreate**](docs/AuthApi.md#authRouterCreate) | **POST** /auth/create | 
+*AuthApi* | [**authRouterGetAuthInfo**](docs/AuthApi.md#authRouterGetAuthInfo) | **POST** /auth/info | 
+*AuthApi* | [**authRouterUpdateAuthInfo**](docs/AuthApi.md#authRouterUpdateAuthInfo) | **PUT** /auth/info | 
+*ClusterApi* | [**clusterRouterAddItemsToAccountWebhookCacheOfEveryNodeInCluster**](docs/ClusterApi.md#clusterRouterAddItemsToAccountWebhookCacheOfEveryNodeInCluster) | **POST** /cluster/webhook/cache | 
+*ClusterApi* | [**clusterRouterAddItemsToSuppressionFilterOfEveryNodeInCluster**](docs/ClusterApi.md#clusterRouterAddItemsToSuppressionFilterOfEveryNodeInCluster) | **POST** /cluster/suppression/filter | 
+*ClusterApi* | [**clusterRouterDeleteItemsFromSuppressionFilterOfEveryNodeInCluster**](docs/ClusterApi.md#clusterRouterDeleteItemsFromSuppressionFilterOfEveryNodeInCluster) | **DELETE** /cluster/suppression/filter | 
+*ClusterApi* | [**clusterRouterDeleteItemsFromWebhookFilterOfEveryNodeInCluster**](docs/ClusterApi.md#clusterRouterDeleteItemsFromWebhookFilterOfEveryNodeInCluster) | **DELETE** /cluster/webhook/cache | 
 *SmtpApi* | [**sMTPRouterReceiveWebhooksRaisedFromSMTPServers**](docs/SmtpApi.md#sMTPRouterReceiveWebhooksRaisedFromSMTPServers) | **POST** /smtp/webhook | 
 *SubaccountdomainApi* | [**domainRouterCount**](docs/SubaccountdomainApi.md#domainRouterCount) | **GET** /subaccount/domain/count | 
 *SubaccountdomainApi* | [**domainRouterCreate**](docs/SubaccountdomainApi.md#domainRouterCreate) | **POST** /subaccount/domain/ | 
@@ -221,6 +233,9 @@ Class | Method | HTTP request | Description
 *SubaccountsuppressionApi* | [**suppressionRouterDeleteSuppression**](docs/SubaccountsuppressionApi.md#suppressionRouterDeleteSuppression) | **DELETE** /subaccount/suppression/ | 
 *SubaccountsuppressionApi* | [**suppressionRouterDeleteSuppressionsInSuppressionFilter**](docs/SubaccountsuppressionApi.md#suppressionRouterDeleteSuppressionsInSuppressionFilter) | **DELETE** /subaccount/suppression/filter | 
 *SubaccountsuppressionApi* | [**suppressionRouterGetAllSuppressions**](docs/SubaccountsuppressionApi.md#suppressionRouterGetAllSuppressions) | **GET** /subaccount/suppression/ | 
+*TrackApi* | [**trackRouterTrackEmailOpen**](docs/TrackApi.md#trackRouterTrackEmailOpen) | **GET** /track/open/{accountId}/{subAccountId}/{ipId}/{emailType}/{messageId}/1.png | 
+*TrackApi* | [**trackRouterTrackLinkClick**](docs/TrackApi.md#trackRouterTrackLinkClick) | **GET** /track/click/{accountId}/{subAccountId}/{ipId}/{emailType}/{messageId} | 
+*TrackApi* | [**trackRouterTrackUnsubscribe**](docs/TrackApi.md#trackRouterTrackUnsubscribe) | **GET** /track/unsubscribe/{accountId}/{subAccountId}/{ipId}/{emailType}/{messageId} | 
 
 
 ## Documentation for Models
@@ -231,9 +246,9 @@ Class | Method | HTTP request | Description
  - [ModelsAccount](docs/ModelsAccount.md)
  - [ModelsAccountIPPool](docs/ModelsAccountIPPool.md)
  - [ModelsAccountWebhook](docs/ModelsAccountWebhook.md)
- - [ModelsAlert](docs/ModelsAlert.md)
  - [ModelsAlertLabel](docs/ModelsAlertLabel.md)
  - [ModelsAlertRequest](docs/ModelsAlertRequest.md)
+ - [ModelsAlertResponse](docs/ModelsAlertResponse.md)
  - [ModelsAuthInfo](docs/ModelsAuthInfo.md)
  - [ModelsBackOffConfiguration](docs/ModelsBackOffConfiguration.md)
  - [ModelsBackOffDecreaseType](docs/ModelsBackOffDecreaseType.md)
@@ -247,6 +262,7 @@ Class | Method | HTTP request | Description
  - [ModelsDetailedAlert](docs/ModelsDetailedAlert.md)
  - [ModelsDomain](docs/ModelsDomain.md)
  - [ModelsEAccount](docs/ModelsEAccount.md)
+ - [ModelsEAccountMember](docs/ModelsEAccountMember.md)
  - [ModelsEDomain](docs/ModelsEDomain.md)
  - [ModelsEIP](docs/ModelsEIP.md)
  - [ModelsEIPPool](docs/ModelsEIPPool.md)
@@ -281,7 +297,6 @@ Class | Method | HTTP request | Description
  - [ModelsMemberRole](docs/ModelsMemberRole.md)
  - [ModelsNotificationType](docs/ModelsNotificationType.md)
  - [ModelsPIPStat](docs/ModelsPIPStat.md)
- - [ModelsPriority](docs/ModelsPriority.md)
  - [ModelsQEmailMessage](docs/ModelsQEmailMessage.md)
  - [ModelsQEvent](docs/ModelsQEvent.md)
  - [ModelsRDSuppression](docs/ModelsRDSuppression.md)

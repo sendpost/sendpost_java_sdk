@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ModelsMember
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-28T07:50:19.455Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-11-06T12:08:13.160Z")
 
 
 
@@ -44,8 +44,17 @@ public class ModelsMember {
   @SerializedName("IsVerified")
   private Boolean isVerified = null;
 
+  @SerializedName("companyName")
+  private String companyName = null;
+
   @SerializedName("created")
   private Long created = null;
+
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("phoneNumber")
+  private String phoneNumber = null;
 
   public ModelsMember email(String email) {
     this.email = email;
@@ -119,6 +128,24 @@ public class ModelsMember {
     this.isVerified = isVerified;
   }
 
+  public ModelsMember companyName(String companyName) {
+    this.companyName = companyName;
+    return this;
+  }
+
+   /**
+   * Get companyName
+   * @return companyName
+  **/
+  @ApiModelProperty(value = "")
+  public String getCompanyName() {
+    return companyName;
+  }
+
+  public void setCompanyName(String companyName) {
+    this.companyName = companyName;
+  }
+
   public ModelsMember created(Long created) {
     this.created = created;
     return this;
@@ -137,6 +164,42 @@ public class ModelsMember {
     this.created = created;
   }
 
+  public ModelsMember name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(value = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public ModelsMember phoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+    return this;
+  }
+
+   /**
+   * Get phoneNumber
+   * @return phoneNumber
+  **/
+  @ApiModelProperty(value = "")
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
+
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -151,12 +214,15 @@ public class ModelsMember {
         Objects.equals(this.id, modelsMember.id) &&
         Objects.equals(this.isForbidden, modelsMember.isForbidden) &&
         Objects.equals(this.isVerified, modelsMember.isVerified) &&
-        Objects.equals(this.created, modelsMember.created);
+        Objects.equals(this.companyName, modelsMember.companyName) &&
+        Objects.equals(this.created, modelsMember.created) &&
+        Objects.equals(this.name, modelsMember.name) &&
+        Objects.equals(this.phoneNumber, modelsMember.phoneNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, id, isForbidden, isVerified, created);
+    return Objects.hash(email, id, isForbidden, isVerified, companyName, created, name, phoneNumber);
   }
 
 
@@ -169,7 +235,10 @@ public class ModelsMember {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isForbidden: ").append(toIndentedString(isForbidden)).append("\n");
     sb.append("    isVerified: ").append(toIndentedString(isVerified)).append("\n");
+    sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("}");
     return sb.toString();
   }
