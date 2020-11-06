@@ -41,6 +41,23 @@ public class AccountvalidationApiTest {
     /**
      * 
      *
+     * Validate Emails In File Asynchronously
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void validateRouterValidateEmailBulkTest() throws ApiException {
+        File fileinput = null;
+        String xAccountApiKey = null;
+        ModelsBulkResponse response = api.validateRouterValidateEmailBulk(fileinput, xAccountApiKey);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
      * Count Total Validations
      *
      * @throws ApiException
@@ -86,23 +103,6 @@ public class AccountvalidationApiTest {
         Long limit = null;
         String search = null;
         List<ModelsValidation> response = api.validationRouterGetAll(xAccountApiKey, offset, limit, search);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * 
-     *
-     * Validate Emails In File Asynchronously
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void validationRouterValidateEmailBulkTest() throws ApiException {
-        File fileinput = null;
-        String xAccountApiKey = null;
-        ModelsBulkResponse response = api.validationRouterValidateEmailBulk(fileinput, xAccountApiKey);
 
         // TODO: test validations
     }

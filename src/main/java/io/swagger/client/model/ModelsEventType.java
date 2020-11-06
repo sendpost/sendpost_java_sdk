@@ -19,7 +19,7 @@ import java.util.Arrays;
 /**
  * ModelsEventType
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-11-06T12:08:13.160Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-11-06T12:27:02.903Z")
 
 
 

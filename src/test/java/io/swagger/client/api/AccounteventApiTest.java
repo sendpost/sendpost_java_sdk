@@ -119,30 +119,6 @@ public class AccounteventApiTest {
     /**
      * 
      *
-     * Find all events from a account for a given time-range
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void eventRouterGetAllEventsFromAAccountForAGivenTimeRangeTest() throws ApiException {
-        String xAccountApiKey = null;
-        Long offset = null;
-        Long limit = null;
-        String search = null;
-        String type = null;
-        String from = null;
-        String to = null;
-        String source = null;
-        String sourceId = null;
-        List<ModelsQEvent> response = api.eventRouterGetAllEventsFromAAccountForAGivenTimeRange(xAccountApiKey, offset, limit, search, type, from, to, source, sourceId);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * 
-     *
      * Find all events of a account from a specific node
      *
      * @throws ApiException

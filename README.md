@@ -2,7 +2,7 @@
 
 SendPost API
 - API version: 1.0.0
-  - Build date: 2020-11-06T12:08:13.160Z
+  - Build date: 2020-11-06T12:27:02.903Z
 
 SendPost API to send transactional emails reliably
 
@@ -75,23 +75,28 @@ Please follow the [installation](#installation) instruction and execute the foll
 import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
-import io.swagger.client.api.AccountalertApi;
+import io.swagger.client.api.AccounteventApi;
 
 import java.io.File;
 import java.util.*;
 
-public class AccountalertApiExample {
+public class AccounteventApiExample {
 
     public static void main(String[] args) {
         
-        AccountalertApi apiInstance = new AccountalertApi();
+        AccounteventApi apiInstance = new AccounteventApi();
         String xAccountApiKey = "xAccountApiKey_example"; // String | Account API Key
         String search = "search_example"; // String | search term
+        String type = "type_example"; // String | search type
+        String from = "from_example"; // String | from date
+        String to = "to_example"; // String | to date
+        String source = "source_example"; // String | data source from which to get timestamp keys subaccount or ip
+        String sourceId = "sourceId_example"; // String | source id from which to get timestamp keys subaccount or ip
         try {
-            ModelsCountStat result = apiInstance.alertRouterCount(xAccountApiKey, search);
+            ModelsCountStat result = apiInstance.eventRouterCountAllEventsFromAAccountForAGivenTimeRange(xAccountApiKey, search, type, from, to, source, sourceId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountalertApi#alertRouterCount");
+            System.err.println("Exception when calling AccounteventApi#eventRouterCountAllEventsFromAAccountForAGivenTimeRange");
             e.printStackTrace();
         }
     }
@@ -105,15 +110,10 @@ All URIs are relative to *https://api.sendpost.io/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccountalertApi* | [**alertRouterCount**](docs/AccountalertApi.md#alertRouterCount) | **GET** /account/alert/count | 
-*AccountalertApi* | [**alertRouterCreateAlert**](docs/AccountalertApi.md#alertRouterCreateAlert) | **POST** /account/alert/ | 
-*AccountalertApi* | [**alertRouterGetAll**](docs/AccountalertApi.md#alertRouterGetAll) | **GET** /account/alert/ | 
-*AccountalertApi* | [**alertRouterUpdate**](docs/AccountalertApi.md#alertRouterUpdate) | **PUT** /account/alert/{alertid} | 
 *AccounteventApi* | [**eventRouterCountAllEventsFromAAccountForAGivenTimeRange**](docs/AccounteventApi.md#eventRouterCountAllEventsFromAAccountForAGivenTimeRange) | **GET** /account/event/count | 
 *AccounteventApi* | [**eventRouterCountAllEventsFromANodeOfASubAccountForAGivenTimeRange**](docs/AccounteventApi.md#eventRouterCountAllEventsFromANodeOfASubAccountForAGivenTimeRange) | **GET** /account/event/node/count | 
 *AccounteventApi* | [**eventRouterGet**](docs/AccounteventApi.md#eventRouterGet) | **GET** /account/event/{eventId} | 
 *AccounteventApi* | [**eventRouterGetAllEventTimestampKeysOfASubAccountFromASpecificNodeForAGivenTimeRange**](docs/AccounteventApi.md#eventRouterGetAllEventTimestampKeysOfASubAccountFromASpecificNodeForAGivenTimeRange) | **GET** /account/event/node/timestampkeys | 
-*AccounteventApi* | [**eventRouterGetAllEventsFromAAccountForAGivenTimeRange**](docs/AccounteventApi.md#eventRouterGetAllEventsFromAAccountForAGivenTimeRange) | **GET** /account/event/ | 
 *AccounteventApi* | [**eventRouterGetAllEventsOfAAccountFromASpecificNode**](docs/AccounteventApi.md#eventRouterGetAllEventsOfAAccountFromASpecificNode) | **POST** /account/event/node | 
 *AccounteventApi* | [**eventRouterGetEventInNode**](docs/AccounteventApi.md#eventRouterGetEventInNode) | **GET** /account/event/node/{eventId} | 
 *AccountintegrationApi* | [**accountIntegrationRouterCount**](docs/AccountintegrationApi.md#accountIntegrationRouterCount) | **GET** /account/integration/count | 
@@ -124,9 +124,6 @@ Class | Method | HTTP request | Description
 *AccountintegrationApi* | [**accountIntegrationRouterGetAll**](docs/AccountintegrationApi.md#accountIntegrationRouterGetAll) | **GET** /account/integration/ | 
 *AccountintegrationApi* | [**accountIntegrationRouterGetMonitoredIPStats**](docs/AccountintegrationApi.md#accountIntegrationRouterGetMonitoredIPStats) | **GET** /account/integration/glockapps/monitor/stat/{ipid} | 
 *AccountintegrationApi* | [**accountIntegrationRouterUpdate**](docs/AccountintegrationApi.md#accountIntegrationRouterUpdate) | **PUT** /account/integration/{itype} | 
-*AccountinvitationApi* | [**invitationRouterCreate**](docs/AccountinvitationApi.md#invitationRouterCreate) | **POST** /account/invitation/ | 
-*AccountinvitationApi* | [**invitationRouterDelete**](docs/AccountinvitationApi.md#invitationRouterDelete) | **DELETE** /account/invitation/{invitationId} | 
-*AccountinvitationApi* | [**invitationRouterGetAll**](docs/AccountinvitationApi.md#invitationRouterGetAll) | **GET** /account/invitation/ | 
 *AccountipApi* | [**iPRouterAllocateIP**](docs/AccountipApi.md#iPRouterAllocateIP) | **POST** /account/ip/allocate | 
 *AccountipApi* | [**iPRouterCount**](docs/AccountipApi.md#iPRouterCount) | **GET** /account/ip/count | 
 *AccountipApi* | [**iPRouterDelete**](docs/AccountipApi.md#iPRouterDelete) | **DELETE** /account/ip/{ipid} | 
@@ -177,11 +174,10 @@ Class | Method | HTTP request | Description
 *AccountsubaccountApi* | [**subAccountRouterGet**](docs/AccountsubaccountApi.md#subAccountRouterGet) | **GET** /account/subaccount/{subAccountId} | 
 *AccountsubaccountApi* | [**subAccountRouterGetAll**](docs/AccountsubaccountApi.md#subAccountRouterGetAll) | **GET** /account/subaccount/ | 
 *AccountsubaccountApi* | [**subAccountRouterUpdate**](docs/AccountsubaccountApi.md#subAccountRouterUpdate) | **PUT** /account/subaccount/{subAccountId} | 
-*AccountvalidateApi* | [**validateRouterValidateEmailBulk**](docs/AccountvalidateApi.md#validateRouterValidateEmailBulk) | **POST** /account/validate/bulk | 
+*AccountvalidationApi* | [**validateRouterValidateEmailBulk**](docs/AccountvalidationApi.md#validateRouterValidateEmailBulk) | **POST** /account/validation/bulk | 
 *AccountvalidationApi* | [**validationRouterCount**](docs/AccountvalidationApi.md#validationRouterCount) | **GET** /account/validation/count | 
 *AccountvalidationApi* | [**validationRouterDeleteValidation**](docs/AccountvalidationApi.md#validationRouterDeleteValidation) | **DELETE** /account/validation/ | 
 *AccountvalidationApi* | [**validationRouterGetAll**](docs/AccountvalidationApi.md#validationRouterGetAll) | **GET** /account/validation/ | 
-*AccountvalidationApi* | [**validationRouterValidateEmailBulk**](docs/AccountvalidationApi.md#validationRouterValidateEmailBulk) | **POST** /account/validation/bulk | 
 *AccountvalidationApi* | [**validationRouterValidateEmailList**](docs/AccountvalidationApi.md#validationRouterValidateEmailList) | **POST** /account/validation/ | 
 *AccountwebhookApi* | [**accountWebhookRouterCount**](docs/AccountwebhookApi.md#accountWebhookRouterCount) | **GET** /account/webhook/count | 
 *AccountwebhookApi* | [**accountWebhookRouterCreate**](docs/AccountwebhookApi.md#accountWebhookRouterCreate) | **POST** /account/webhook/ | 
@@ -191,13 +187,6 @@ Class | Method | HTTP request | Description
 *AccountwebhookApi* | [**accountWebhookRouterGet**](docs/AccountwebhookApi.md#accountWebhookRouterGet) | **GET** /account/webhook/{webhookId} | 
 *AccountwebhookApi* | [**accountWebhookRouterGetAll**](docs/AccountwebhookApi.md#accountWebhookRouterGetAll) | **GET** /account/webhook/ | 
 *AccountwebhookApi* | [**accountWebhookRouterUpdate**](docs/AccountwebhookApi.md#accountWebhookRouterUpdate) | **PUT** /account/webhook/{webhookId} | 
-*AuthApi* | [**authRouterCreate**](docs/AuthApi.md#authRouterCreate) | **POST** /auth/create | 
-*AuthApi* | [**authRouterGetAuthInfo**](docs/AuthApi.md#authRouterGetAuthInfo) | **POST** /auth/info | 
-*AuthApi* | [**authRouterUpdateAuthInfo**](docs/AuthApi.md#authRouterUpdateAuthInfo) | **PUT** /auth/info | 
-*ClusterApi* | [**clusterRouterAddItemsToAccountWebhookCacheOfEveryNodeInCluster**](docs/ClusterApi.md#clusterRouterAddItemsToAccountWebhookCacheOfEveryNodeInCluster) | **POST** /cluster/webhook/cache | 
-*ClusterApi* | [**clusterRouterAddItemsToSuppressionFilterOfEveryNodeInCluster**](docs/ClusterApi.md#clusterRouterAddItemsToSuppressionFilterOfEveryNodeInCluster) | **POST** /cluster/suppression/filter | 
-*ClusterApi* | [**clusterRouterDeleteItemsFromSuppressionFilterOfEveryNodeInCluster**](docs/ClusterApi.md#clusterRouterDeleteItemsFromSuppressionFilterOfEveryNodeInCluster) | **DELETE** /cluster/suppression/filter | 
-*ClusterApi* | [**clusterRouterDeleteItemsFromWebhookFilterOfEveryNodeInCluster**](docs/ClusterApi.md#clusterRouterDeleteItemsFromWebhookFilterOfEveryNodeInCluster) | **DELETE** /cluster/webhook/cache | 
 *SmtpApi* | [**sMTPRouterReceiveWebhooksRaisedFromSMTPServers**](docs/SmtpApi.md#sMTPRouterReceiveWebhooksRaisedFromSMTPServers) | **POST** /smtp/webhook | 
 *SubaccountdomainApi* | [**domainRouterCount**](docs/SubaccountdomainApi.md#domainRouterCount) | **GET** /subaccount/domain/count | 
 *SubaccountdomainApi* | [**domainRouterCreate**](docs/SubaccountdomainApi.md#domainRouterCreate) | **POST** /subaccount/domain/ | 
@@ -233,9 +222,6 @@ Class | Method | HTTP request | Description
 *SubaccountsuppressionApi* | [**suppressionRouterDeleteSuppression**](docs/SubaccountsuppressionApi.md#suppressionRouterDeleteSuppression) | **DELETE** /subaccount/suppression/ | 
 *SubaccountsuppressionApi* | [**suppressionRouterDeleteSuppressionsInSuppressionFilter**](docs/SubaccountsuppressionApi.md#suppressionRouterDeleteSuppressionsInSuppressionFilter) | **DELETE** /subaccount/suppression/filter | 
 *SubaccountsuppressionApi* | [**suppressionRouterGetAllSuppressions**](docs/SubaccountsuppressionApi.md#suppressionRouterGetAllSuppressions) | **GET** /subaccount/suppression/ | 
-*TrackApi* | [**trackRouterTrackEmailOpen**](docs/TrackApi.md#trackRouterTrackEmailOpen) | **GET** /track/open/{accountId}/{subAccountId}/{ipId}/{emailType}/{messageId}/1.png | 
-*TrackApi* | [**trackRouterTrackLinkClick**](docs/TrackApi.md#trackRouterTrackLinkClick) | **GET** /track/click/{accountId}/{subAccountId}/{ipId}/{emailType}/{messageId} | 
-*TrackApi* | [**trackRouterTrackUnsubscribe**](docs/TrackApi.md#trackRouterTrackUnsubscribe) | **GET** /track/unsubscribe/{accountId}/{subAccountId}/{ipId}/{emailType}/{messageId} | 
 
 
 ## Documentation for Models

@@ -61,6 +61,141 @@ public class AccountvalidationApi {
     }
 
     /**
+     * Build call for validateRouterValidateEmailBulk
+     * @param fileinput CSV whose emails need to be validated (required)
+     * @param xAccountApiKey Account API Key (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call validateRouterValidateEmailBulkCall(File fileinput, String xAccountApiKey, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/account/validation/bulk";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xAccountApiKey != null)
+        localVarHeaderParams.put("X-Account-ApiKey", apiClient.parameterToString(xAccountApiKey));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (fileinput != null)
+        localVarFormParams.put("fileinput", fileinput);
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call validateRouterValidateEmailBulkValidateBeforeCall(File fileinput, String xAccountApiKey, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'fileinput' is set
+        if (fileinput == null) {
+            throw new ApiException("Missing the required parameter 'fileinput' when calling validateRouterValidateEmailBulk(Async)");
+        }
+        
+        // verify the required parameter 'xAccountApiKey' is set
+        if (xAccountApiKey == null) {
+            throw new ApiException("Missing the required parameter 'xAccountApiKey' when calling validateRouterValidateEmailBulk(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = validateRouterValidateEmailBulkCall(fileinput, xAccountApiKey, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * 
+     * Validate Emails In File Asynchronously
+     * @param fileinput CSV whose emails need to be validated (required)
+     * @param xAccountApiKey Account API Key (required)
+     * @return ModelsBulkResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModelsBulkResponse validateRouterValidateEmailBulk(File fileinput, String xAccountApiKey) throws ApiException {
+        ApiResponse<ModelsBulkResponse> resp = validateRouterValidateEmailBulkWithHttpInfo(fileinput, xAccountApiKey);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * Validate Emails In File Asynchronously
+     * @param fileinput CSV whose emails need to be validated (required)
+     * @param xAccountApiKey Account API Key (required)
+     * @return ApiResponse&lt;ModelsBulkResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModelsBulkResponse> validateRouterValidateEmailBulkWithHttpInfo(File fileinput, String xAccountApiKey) throws ApiException {
+        com.squareup.okhttp.Call call = validateRouterValidateEmailBulkValidateBeforeCall(fileinput, xAccountApiKey, null, null);
+        Type localVarReturnType = new TypeToken<ModelsBulkResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Validate Emails In File Asynchronously
+     * @param fileinput CSV whose emails need to be validated (required)
+     * @param xAccountApiKey Account API Key (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call validateRouterValidateEmailBulkAsync(File fileinput, String xAccountApiKey, final ApiCallback<ModelsBulkResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = validateRouterValidateEmailBulkValidateBeforeCall(fileinput, xAccountApiKey, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModelsBulkResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for validationRouterCount
      * @param xAccountApiKey Account API Key (required)
      * @param progressListener Progress listener
@@ -456,141 +591,6 @@ public class AccountvalidationApi {
 
         com.squareup.okhttp.Call call = validationRouterGetAllValidateBeforeCall(xAccountApiKey, offset, limit, search, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<ModelsValidation>>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for validationRouterValidateEmailBulk
-     * @param fileinput CSV whose emails need to be validated (required)
-     * @param xAccountApiKey Account API Key (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call validationRouterValidateEmailBulkCall(File fileinput, String xAccountApiKey, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/account/validation/bulk";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (xAccountApiKey != null)
-        localVarHeaderParams.put("X-Account-ApiKey", apiClient.parameterToString(xAccountApiKey));
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        if (fileinput != null)
-        localVarFormParams.put("fileinput", fileinput);
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call validationRouterValidateEmailBulkValidateBeforeCall(File fileinput, String xAccountApiKey, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'fileinput' is set
-        if (fileinput == null) {
-            throw new ApiException("Missing the required parameter 'fileinput' when calling validationRouterValidateEmailBulk(Async)");
-        }
-        
-        // verify the required parameter 'xAccountApiKey' is set
-        if (xAccountApiKey == null) {
-            throw new ApiException("Missing the required parameter 'xAccountApiKey' when calling validationRouterValidateEmailBulk(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = validationRouterValidateEmailBulkCall(fileinput, xAccountApiKey, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * 
-     * Validate Emails In File Asynchronously
-     * @param fileinput CSV whose emails need to be validated (required)
-     * @param xAccountApiKey Account API Key (required)
-     * @return ModelsBulkResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ModelsBulkResponse validationRouterValidateEmailBulk(File fileinput, String xAccountApiKey) throws ApiException {
-        ApiResponse<ModelsBulkResponse> resp = validationRouterValidateEmailBulkWithHttpInfo(fileinput, xAccountApiKey);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * Validate Emails In File Asynchronously
-     * @param fileinput CSV whose emails need to be validated (required)
-     * @param xAccountApiKey Account API Key (required)
-     * @return ApiResponse&lt;ModelsBulkResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<ModelsBulkResponse> validationRouterValidateEmailBulkWithHttpInfo(File fileinput, String xAccountApiKey) throws ApiException {
-        com.squareup.okhttp.Call call = validationRouterValidateEmailBulkValidateBeforeCall(fileinput, xAccountApiKey, null, null);
-        Type localVarReturnType = new TypeToken<ModelsBulkResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * Validate Emails In File Asynchronously
-     * @param fileinput CSV whose emails need to be validated (required)
-     * @param xAccountApiKey Account API Key (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call validationRouterValidateEmailBulkAsync(File fileinput, String xAccountApiKey, final ApiCallback<ModelsBulkResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = validationRouterValidateEmailBulkValidateBeforeCall(fileinput, xAccountApiKey, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ModelsBulkResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

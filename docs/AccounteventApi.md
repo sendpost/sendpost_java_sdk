@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**eventRouterCountAllEventsFromANodeOfASubAccountForAGivenTimeRange**](AccounteventApi.md#eventRouterCountAllEventsFromANodeOfASubAccountForAGivenTimeRange) | **GET** /account/event/node/count | 
 [**eventRouterGet**](AccounteventApi.md#eventRouterGet) | **GET** /account/event/{eventId} | 
 [**eventRouterGetAllEventTimestampKeysOfASubAccountFromASpecificNodeForAGivenTimeRange**](AccounteventApi.md#eventRouterGetAllEventTimestampKeysOfASubAccountFromASpecificNodeForAGivenTimeRange) | **GET** /account/event/node/timestampkeys | 
-[**eventRouterGetAllEventsFromAAccountForAGivenTimeRange**](AccounteventApi.md#eventRouterGetAllEventsFromAAccountForAGivenTimeRange) | **GET** /account/event/ | 
 [**eventRouterGetAllEventsOfAAccountFromASpecificNode**](AccounteventApi.md#eventRouterGetAllEventsOfAAccountFromASpecificNode) | **POST** /account/event/node | 
 [**eventRouterGetEventInNode**](AccounteventApi.md#eventRouterGetEventInNode) | **GET** /account/event/node/{eventId} | 
 
@@ -211,67 +210,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAccountApiKey** | **String**| Account API Key |
- **search** | **String**| search term | [optional]
- **type** | **String**| search type | [optional]
- **from** | **String**| from date | [optional]
- **to** | **String**| to date | [optional]
- **source** | **String**| data source from which to get timestamp keys subaccount or ip | [optional]
- **sourceId** | **String**| source id from which to get timestamp keys subaccount or ip | [optional]
-
-### Return type
-
-[**List&lt;ModelsQEvent&gt;**](ModelsQEvent.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="eventRouterGetAllEventsFromAAccountForAGivenTimeRange"></a>
-# **eventRouterGetAllEventsFromAAccountForAGivenTimeRange**
-> List&lt;ModelsQEvent&gt; eventRouterGetAllEventsFromAAccountForAGivenTimeRange(xAccountApiKey, offset, limit, search, type, from, to, source, sourceId)
-
-
-
-Find all events from a account for a given time-range
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AccounteventApi;
-
-
-AccounteventApi apiInstance = new AccounteventApi();
-String xAccountApiKey = "xAccountApiKey_example"; // String | Account API Key
-Long offset = 789L; // Long | offset
-Long limit = 789L; // Long | limit
-String search = "search_example"; // String | search term
-String type = "type_example"; // String | search type
-String from = "from_example"; // String | from date
-String to = "to_example"; // String | to date
-String source = "source_example"; // String | data source from which to get timestamp keys subaccount or ip
-String sourceId = "sourceId_example"; // String | source id from which to get timestamp keys subaccount or ip
-try {
-    List<ModelsQEvent> result = apiInstance.eventRouterGetAllEventsFromAAccountForAGivenTimeRange(xAccountApiKey, offset, limit, search, type, from, to, source, sourceId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AccounteventApi#eventRouterGetAllEventsFromAAccountForAGivenTimeRange");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xAccountApiKey** | **String**| Account API Key |
- **offset** | **Long**| offset | [optional]
- **limit** | **Long**| limit | [optional]
  **search** | **String**| search term | [optional]
  **type** | **String**| search type | [optional]
  **from** | **String**| from date | [optional]

@@ -4,12 +4,59 @@ All URIs are relative to *https://api.sendpost.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**validateRouterValidateEmailBulk**](AccountvalidationApi.md#validateRouterValidateEmailBulk) | **POST** /account/validation/bulk | 
 [**validationRouterCount**](AccountvalidationApi.md#validationRouterCount) | **GET** /account/validation/count | 
 [**validationRouterDeleteValidation**](AccountvalidationApi.md#validationRouterDeleteValidation) | **DELETE** /account/validation/ | 
 [**validationRouterGetAll**](AccountvalidationApi.md#validationRouterGetAll) | **GET** /account/validation/ | 
-[**validationRouterValidateEmailBulk**](AccountvalidationApi.md#validationRouterValidateEmailBulk) | **POST** /account/validation/bulk | 
 [**validationRouterValidateEmailList**](AccountvalidationApi.md#validationRouterValidateEmailList) | **POST** /account/validation/ | 
 
+
+<a name="validateRouterValidateEmailBulk"></a>
+# **validateRouterValidateEmailBulk**
+> ModelsBulkResponse validateRouterValidateEmailBulk(fileinput, xAccountApiKey)
+
+
+
+Validate Emails In File Asynchronously
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.AccountvalidationApi;
+
+
+AccountvalidationApi apiInstance = new AccountvalidationApi();
+File fileinput = new File("/path/to/file.txt"); // File | CSV whose emails need to be validated
+String xAccountApiKey = "xAccountApiKey_example"; // String | Account API Key
+try {
+    ModelsBulkResponse result = apiInstance.validateRouterValidateEmailBulk(fileinput, xAccountApiKey);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AccountvalidationApi#validateRouterValidateEmailBulk");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fileinput** | **File**| CSV whose emails need to be validated |
+ **xAccountApiKey** | **String**| Account API Key |
+
+### Return type
+
+[**ModelsBulkResponse**](ModelsBulkResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
 
 <a name="validationRouterCount"></a>
 # **validationRouterCount**
@@ -144,53 +191,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;ModelsValidation&gt;**](ModelsValidation.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="validationRouterValidateEmailBulk"></a>
-# **validationRouterValidateEmailBulk**
-> ModelsBulkResponse validationRouterValidateEmailBulk(fileinput, xAccountApiKey)
-
-
-
-Validate Emails In File Asynchronously
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AccountvalidationApi;
-
-
-AccountvalidationApi apiInstance = new AccountvalidationApi();
-File fileinput = new File("/path/to/file.txt"); // File | CSV whose emails need to be validated
-String xAccountApiKey = "xAccountApiKey_example"; // String | Account API Key
-try {
-    ModelsBulkResponse result = apiInstance.validationRouterValidateEmailBulk(fileinput, xAccountApiKey);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling AccountvalidationApi#validationRouterValidateEmailBulk");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fileinput** | **File**| CSV whose emails need to be validated |
- **xAccountApiKey** | **String**| Account API Key |
-
-### Return type
-
-[**ModelsBulkResponse**](ModelsBulkResponse.md)
 
 ### Authorization
 
