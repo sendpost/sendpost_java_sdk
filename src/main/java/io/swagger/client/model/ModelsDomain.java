@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * ModelsDomain
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-11-06T12:27:02.903Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-11-27T05:08:14.940Z")
 
 
 
@@ -62,6 +62,9 @@ public class ModelsDomain {
 
   @SerializedName("trackVerified")
   private Boolean trackVerified = null;
+
+  @SerializedName("verified")
+  private Boolean verified = null;
 
   public ModelsDomain created(Long created) {
     this.created = created;
@@ -243,6 +246,24 @@ public class ModelsDomain {
     this.trackVerified = trackVerified;
   }
 
+  public ModelsDomain verified(Boolean verified) {
+    this.verified = verified;
+    return this;
+  }
+
+   /**
+   * Get verified
+   * @return verified
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isVerified() {
+    return verified;
+  }
+
+  public void setVerified(Boolean verified) {
+    this.verified = verified;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -262,12 +283,13 @@ public class ModelsDomain {
         Objects.equals(this.returnPath, modelsDomain.returnPath) &&
         Objects.equals(this.returnPathVerified, modelsDomain.returnPathVerified) &&
         Objects.equals(this.track, modelsDomain.track) &&
-        Objects.equals(this.trackVerified, modelsDomain.trackVerified);
+        Objects.equals(this.trackVerified, modelsDomain.trackVerified) &&
+        Objects.equals(this.verified, modelsDomain.verified);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(created, dkim, dkimConfig, dkimVerified, id, name, returnPath, returnPathVerified, track, trackVerified);
+    return Objects.hash(created, dkim, dkimConfig, dkimVerified, id, name, returnPath, returnPathVerified, track, trackVerified, verified);
   }
 
 
@@ -286,6 +308,7 @@ public class ModelsDomain {
     sb.append("    returnPathVerified: ").append(toIndentedString(returnPathVerified)).append("\n");
     sb.append("    track: ").append(toIndentedString(track)).append("\n");
     sb.append("    trackVerified: ").append(toIndentedString(trackVerified)).append("\n");
+    sb.append("    verified: ").append(toIndentedString(verified)).append("\n");
     sb.append("}");
     return sb.toString();
   }

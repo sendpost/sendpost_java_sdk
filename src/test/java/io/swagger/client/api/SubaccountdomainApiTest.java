@@ -18,6 +18,7 @@ import io.swagger.client.model.ModelsCountStat;
 import io.swagger.client.model.ModelsDeleteResponse;
 import io.swagger.client.model.ModelsDomain;
 import io.swagger.client.model.ModelsEDomain;
+import io.swagger.client.model.ModelsVerifyByTokenRequest;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -152,6 +153,42 @@ public class SubaccountdomainApiTest {
         String xSubAccountApiKey = null;
         Long domainId = null;
         ModelsDomain response = api.domainRouterVerify(xSubAccountApiKey, domainId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Verify Domain By Signed Token
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void domainRouterVerifyByTokenTest() throws ApiException {
+        String xSubAccountApiKey = null;
+        Long domainId = null;
+        String token = null;
+        ModelsDomain response = api.domainRouterVerifyByToken(xSubAccountApiKey, domainId, token);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Verify Domain By Email Request
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void domainRouterVerifyRequestTest() throws ApiException {
+        String xSubAccountApiKey = null;
+        Long domainId = null;
+        ModelsVerifyByTokenRequest body = null;
+        api.domainRouterVerifyRequest(xSubAccountApiKey, domainId, body);
 
         // TODO: test validations
     }

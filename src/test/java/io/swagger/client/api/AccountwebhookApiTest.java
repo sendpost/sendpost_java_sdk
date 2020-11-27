@@ -71,22 +71,6 @@ public class AccountwebhookApiTest {
     /**
      * 
      *
-     * Add Account Webhook To AccountWebhook Cache
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void accountWebhookRouterCreateAccountWebhookInAccountWebhookCacheTest() throws ApiException {
-        ModelsAccountWebhook body = null;
-        api.accountWebhookRouterCreateAccountWebhookInAccountWebhookCache(body);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * 
-     *
      * Delete AccountWebhook
      *
      * @throws ApiException
@@ -97,22 +81,6 @@ public class AccountwebhookApiTest {
         String xAccountApiKey = null;
         Long webhookId = null;
         ModelsDeleteResponse response = api.accountWebhookRouterDelete(xAccountApiKey, webhookId);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * 
-     *
-     * Delete Account Webhook which is in AccountWebhook Cache
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void accountWebhookRouterDeleteAccountWebhookInAccountWebhookCacheTest() throws ApiException {
-        ModelsAccountWebhook body = null;
-        api.accountWebhookRouterDeleteAccountWebhookInAccountWebhookCache(body);
 
         // TODO: test validations
     }

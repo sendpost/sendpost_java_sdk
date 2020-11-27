@@ -31,6 +31,7 @@ import io.swagger.client.model.ModelsCountStat;
 import io.swagger.client.model.ModelsDeleteResponse;
 import io.swagger.client.model.ModelsDomain;
 import io.swagger.client.model.ModelsEDomain;
+import io.swagger.client.model.ModelsVerifyByTokenRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -999,6 +1000,289 @@ public class SubaccountdomainApi {
         com.squareup.okhttp.Call call = domainRouterVerifyValidateBeforeCall(xSubAccountApiKey, domainId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ModelsDomain>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for domainRouterVerifyByToken
+     * @param xSubAccountApiKey Sub-Account API Key (required)
+     * @param domainId the DomainId you want to get (required)
+     * @param token The signed token used to verify (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call domainRouterVerifyByTokenCall(String xSubAccountApiKey, Long domainId, String token, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/subaccount/domain/{domainId}/verify/email/{token}"
+            .replaceAll("\\{" + "domainId" + "\\}", apiClient.escapeString(domainId.toString()))
+            .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xSubAccountApiKey != null)
+        localVarHeaderParams.put("X-SubAccount-ApiKey", apiClient.parameterToString(xSubAccountApiKey));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call domainRouterVerifyByTokenValidateBeforeCall(String xSubAccountApiKey, Long domainId, String token, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'xSubAccountApiKey' is set
+        if (xSubAccountApiKey == null) {
+            throw new ApiException("Missing the required parameter 'xSubAccountApiKey' when calling domainRouterVerifyByToken(Async)");
+        }
+        
+        // verify the required parameter 'domainId' is set
+        if (domainId == null) {
+            throw new ApiException("Missing the required parameter 'domainId' when calling domainRouterVerifyByToken(Async)");
+        }
+        
+        // verify the required parameter 'token' is set
+        if (token == null) {
+            throw new ApiException("Missing the required parameter 'token' when calling domainRouterVerifyByToken(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = domainRouterVerifyByTokenCall(xSubAccountApiKey, domainId, token, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * 
+     * Verify Domain By Signed Token
+     * @param xSubAccountApiKey Sub-Account API Key (required)
+     * @param domainId the DomainId you want to get (required)
+     * @param token The signed token used to verify (required)
+     * @return ModelsDomain
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModelsDomain domainRouterVerifyByToken(String xSubAccountApiKey, Long domainId, String token) throws ApiException {
+        ApiResponse<ModelsDomain> resp = domainRouterVerifyByTokenWithHttpInfo(xSubAccountApiKey, domainId, token);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * Verify Domain By Signed Token
+     * @param xSubAccountApiKey Sub-Account API Key (required)
+     * @param domainId the DomainId you want to get (required)
+     * @param token The signed token used to verify (required)
+     * @return ApiResponse&lt;ModelsDomain&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModelsDomain> domainRouterVerifyByTokenWithHttpInfo(String xSubAccountApiKey, Long domainId, String token) throws ApiException {
+        com.squareup.okhttp.Call call = domainRouterVerifyByTokenValidateBeforeCall(xSubAccountApiKey, domainId, token, null, null);
+        Type localVarReturnType = new TypeToken<ModelsDomain>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Verify Domain By Signed Token
+     * @param xSubAccountApiKey Sub-Account API Key (required)
+     * @param domainId the DomainId you want to get (required)
+     * @param token The signed token used to verify (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call domainRouterVerifyByTokenAsync(String xSubAccountApiKey, Long domainId, String token, final ApiCallback<ModelsDomain> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = domainRouterVerifyByTokenValidateBeforeCall(xSubAccountApiKey, domainId, token, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModelsDomain>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for domainRouterVerifyRequest
+     * @param xSubAccountApiKey Sub-Account API Key (required)
+     * @param domainId the DomainId you want to get (required)
+     * @param body The Email to be used to verify (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call domainRouterVerifyRequestCall(String xSubAccountApiKey, Long domainId, ModelsVerifyByTokenRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/subaccount/domain/{domainId}/verify/email"
+            .replaceAll("\\{" + "domainId" + "\\}", apiClient.escapeString(domainId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xSubAccountApiKey != null)
+        localVarHeaderParams.put("X-SubAccount-ApiKey", apiClient.parameterToString(xSubAccountApiKey));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call domainRouterVerifyRequestValidateBeforeCall(String xSubAccountApiKey, Long domainId, ModelsVerifyByTokenRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'xSubAccountApiKey' is set
+        if (xSubAccountApiKey == null) {
+            throw new ApiException("Missing the required parameter 'xSubAccountApiKey' when calling domainRouterVerifyRequest(Async)");
+        }
+        
+        // verify the required parameter 'domainId' is set
+        if (domainId == null) {
+            throw new ApiException("Missing the required parameter 'domainId' when calling domainRouterVerifyRequest(Async)");
+        }
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling domainRouterVerifyRequest(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = domainRouterVerifyRequestCall(xSubAccountApiKey, domainId, body, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * 
+     * Verify Domain By Email Request
+     * @param xSubAccountApiKey Sub-Account API Key (required)
+     * @param domainId the DomainId you want to get (required)
+     * @param body The Email to be used to verify (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void domainRouterVerifyRequest(String xSubAccountApiKey, Long domainId, ModelsVerifyByTokenRequest body) throws ApiException {
+        domainRouterVerifyRequestWithHttpInfo(xSubAccountApiKey, domainId, body);
+    }
+
+    /**
+     * 
+     * Verify Domain By Email Request
+     * @param xSubAccountApiKey Sub-Account API Key (required)
+     * @param domainId the DomainId you want to get (required)
+     * @param body The Email to be used to verify (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> domainRouterVerifyRequestWithHttpInfo(String xSubAccountApiKey, Long domainId, ModelsVerifyByTokenRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = domainRouterVerifyRequestValidateBeforeCall(xSubAccountApiKey, domainId, body, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     *  (asynchronously)
+     * Verify Domain By Email Request
+     * @param xSubAccountApiKey Sub-Account API Key (required)
+     * @param domainId the DomainId you want to get (required)
+     * @param body The Email to be used to verify (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call domainRouterVerifyRequestAsync(String xSubAccountApiKey, Long domainId, ModelsVerifyByTokenRequest body, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = domainRouterVerifyRequestValidateBeforeCall(xSubAccountApiKey, domainId, body, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
         return call;
     }
 }

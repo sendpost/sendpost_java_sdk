@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * ModelsEmailMessage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-11-06T12:27:02.903Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-11-27T05:08:14.940Z")
 
 
 
@@ -63,6 +63,9 @@ public class ModelsEmailMessage {
 
   @SerializedName("subject")
   private String subject = null;
+
+  @SerializedName("template")
+  private String template = null;
 
   @SerializedName("textBody")
   private String textBody = null;
@@ -238,6 +241,24 @@ public class ModelsEmailMessage {
     this.subject = subject;
   }
 
+  public ModelsEmailMessage template(String template) {
+    this.template = template;
+    return this;
+  }
+
+   /**
+   * Get template
+   * @return template
+  **/
+  @ApiModelProperty(value = "")
+  public String getTemplate() {
+    return template;
+  }
+
+  public void setTemplate(String template) {
+    this.template = template;
+  }
+
   public ModelsEmailMessage textBody(String textBody) {
     this.textBody = textBody;
     return this;
@@ -337,6 +358,7 @@ public class ModelsEmailMessage {
         Objects.equals(this.preText, modelsEmailMessage.preText) &&
         Objects.equals(this.replyTo, modelsEmailMessage.replyTo) &&
         Objects.equals(this.subject, modelsEmailMessage.subject) &&
+        Objects.equals(this.template, modelsEmailMessage.template) &&
         Objects.equals(this.textBody, modelsEmailMessage.textBody) &&
         Objects.equals(this.to, modelsEmailMessage.to) &&
         Objects.equals(this.trackClicks, modelsEmailMessage.trackClicks) &&
@@ -345,7 +367,7 @@ public class ModelsEmailMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ampBody, from, groups, headers, htmlBody, ippool, preText, replyTo, subject, textBody, to, trackClicks, trackOpens);
+    return Objects.hash(ampBody, from, groups, headers, htmlBody, ippool, preText, replyTo, subject, template, textBody, to, trackClicks, trackOpens);
   }
 
 
@@ -363,6 +385,7 @@ public class ModelsEmailMessage {
     sb.append("    preText: ").append(toIndentedString(preText)).append("\n");
     sb.append("    replyTo: ").append(toIndentedString(replyTo)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    textBody: ").append(toIndentedString(textBody)).append("\n");
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
     sb.append("    trackClicks: ").append(toIndentedString(trackClicks)).append("\n");

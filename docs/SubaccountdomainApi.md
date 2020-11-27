@@ -11,6 +11,8 @@ Method | HTTP request | Description
 [**domainRouterGetAll**](SubaccountdomainApi.md#domainRouterGetAll) | **GET** /subaccount/domain/ | 
 [**domainRouterUpdate**](SubaccountdomainApi.md#domainRouterUpdate) | **PUT** /subaccount/domain/{domainId} | 
 [**domainRouterVerify**](SubaccountdomainApi.md#domainRouterVerify) | **POST** /subaccount/domain/{domainId}/verify | 
+[**domainRouterVerifyByToken**](SubaccountdomainApi.md#domainRouterVerifyByToken) | **POST** /subaccount/domain/{domainId}/verify/email/{token} | 
+[**domainRouterVerifyRequest**](SubaccountdomainApi.md#domainRouterVerifyRequest) | **POST** /subaccount/domain/{domainId}/verify/email | 
 
 
 <a name="domainRouterCount"></a>
@@ -336,6 +338,103 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ModelsDomain**](ModelsDomain.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="domainRouterVerifyByToken"></a>
+# **domainRouterVerifyByToken**
+> ModelsDomain domainRouterVerifyByToken(xSubAccountApiKey, domainId, token)
+
+
+
+Verify Domain By Signed Token
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.SubaccountdomainApi;
+
+
+SubaccountdomainApi apiInstance = new SubaccountdomainApi();
+String xSubAccountApiKey = "xSubAccountApiKey_example"; // String | Sub-Account API Key
+Long domainId = 789L; // Long | the DomainId you want to get
+String token = "token_example"; // String | The signed token used to verify
+try {
+    ModelsDomain result = apiInstance.domainRouterVerifyByToken(xSubAccountApiKey, domainId, token);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SubaccountdomainApi#domainRouterVerifyByToken");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSubAccountApiKey** | **String**| Sub-Account API Key |
+ **domainId** | **Long**| the DomainId you want to get |
+ **token** | **String**| The signed token used to verify |
+
+### Return type
+
+[**ModelsDomain**](ModelsDomain.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="domainRouterVerifyRequest"></a>
+# **domainRouterVerifyRequest**
+> domainRouterVerifyRequest(xSubAccountApiKey, domainId, body)
+
+
+
+Verify Domain By Email Request
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.SubaccountdomainApi;
+
+
+SubaccountdomainApi apiInstance = new SubaccountdomainApi();
+String xSubAccountApiKey = "xSubAccountApiKey_example"; // String | Sub-Account API Key
+Long domainId = 789L; // Long | the DomainId you want to get
+ModelsVerifyByTokenRequest body = new ModelsVerifyByTokenRequest(); // ModelsVerifyByTokenRequest | The Email to be used to verify
+try {
+    apiInstance.domainRouterVerifyRequest(xSubAccountApiKey, domainId, body);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SubaccountdomainApi#domainRouterVerifyRequest");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSubAccountApiKey** | **String**| Sub-Account API Key |
+ **domainId** | **Long**| the DomainId you want to get |
+ **body** | [**ModelsVerifyByTokenRequest**](ModelsVerifyByTokenRequest.md)| The Email to be used to verify |
+
+### Return type
+
+null (empty response body)
 
 ### Authorization
 

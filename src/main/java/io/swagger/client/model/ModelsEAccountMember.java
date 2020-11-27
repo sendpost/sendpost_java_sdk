@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ModelsEAccountMember
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-11-06T12:27:02.903Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-11-27T05:08:14.940Z")
 
 
 
@@ -41,8 +41,14 @@ public class ModelsEAccountMember {
   @SerializedName("industry")
   private String industry = null;
 
+  @SerializedName("logoURL")
+  private String logoURL = null;
+
   @SerializedName("name")
   private String name = null;
+
+  @SerializedName("onboardCFinished")
+  private Boolean onboardCFinished = null;
 
   @SerializedName("onboardQAnswered")
   private Boolean onboardQAnswered = null;
@@ -113,6 +119,24 @@ public class ModelsEAccountMember {
     this.industry = industry;
   }
 
+  public ModelsEAccountMember logoURL(String logoURL) {
+    this.logoURL = logoURL;
+    return this;
+  }
+
+   /**
+   * Get logoURL
+   * @return logoURL
+  **/
+  @ApiModelProperty(value = "")
+  public String getLogoURL() {
+    return logoURL;
+  }
+
+  public void setLogoURL(String logoURL) {
+    this.logoURL = logoURL;
+  }
+
   public ModelsEAccountMember name(String name) {
     this.name = name;
     return this;
@@ -129,6 +153,24 @@ public class ModelsEAccountMember {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public ModelsEAccountMember onboardCFinished(Boolean onboardCFinished) {
+    this.onboardCFinished = onboardCFinished;
+    return this;
+  }
+
+   /**
+   * Get onboardCFinished
+   * @return onboardCFinished
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isOnboardCFinished() {
+    return onboardCFinished;
+  }
+
+  public void setOnboardCFinished(Boolean onboardCFinished) {
+    this.onboardCFinished = onboardCFinished;
   }
 
   public ModelsEAccountMember onboardQAnswered(Boolean onboardQAnswered) {
@@ -234,7 +276,9 @@ public class ModelsEAccountMember {
     return Objects.equals(this.companyName, modelsEAccountMember.companyName) &&
         Objects.equals(this.currentEmailServiceProvider, modelsEAccountMember.currentEmailServiceProvider) &&
         Objects.equals(this.industry, modelsEAccountMember.industry) &&
+        Objects.equals(this.logoURL, modelsEAccountMember.logoURL) &&
         Objects.equals(this.name, modelsEAccountMember.name) &&
+        Objects.equals(this.onboardCFinished, modelsEAccountMember.onboardCFinished) &&
         Objects.equals(this.onboardQAnswered, modelsEAccountMember.onboardQAnswered) &&
         Objects.equals(this.phoneNumber, modelsEAccountMember.phoneNumber) &&
         Objects.equals(this.sendingVolumePerMonth, modelsEAccountMember.sendingVolumePerMonth) &&
@@ -244,7 +288,7 @@ public class ModelsEAccountMember {
 
   @Override
   public int hashCode() {
-    return Objects.hash(companyName, currentEmailServiceProvider, industry, name, onboardQAnswered, phoneNumber, sendingVolumePerMonth, uid, verifyEmail);
+    return Objects.hash(companyName, currentEmailServiceProvider, industry, logoURL, name, onboardCFinished, onboardQAnswered, phoneNumber, sendingVolumePerMonth, uid, verifyEmail);
   }
 
 
@@ -256,7 +300,9 @@ public class ModelsEAccountMember {
     sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
     sb.append("    currentEmailServiceProvider: ").append(toIndentedString(currentEmailServiceProvider)).append("\n");
     sb.append("    industry: ").append(toIndentedString(industry)).append("\n");
+    sb.append("    logoURL: ").append(toIndentedString(logoURL)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    onboardCFinished: ").append(toIndentedString(onboardCFinished)).append("\n");
     sb.append("    onboardQAnswered: ").append(toIndentedString(onboardQAnswered)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    sendingVolumePerMonth: ").append(toIndentedString(sendingVolumePerMonth)).append("\n");

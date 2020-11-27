@@ -50,4 +50,21 @@ public class SubaccountemailApiTest {
         // TODO: test validations
     }
     
+    /**
+     * 
+     *
+     * Send Email To Contacts With Template
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void emailRouterSendEmailWithTemplateTest() throws ApiException {
+        String xSubAccountApiKey = null;
+        ModelsEmailMessage body = null;
+        List<ModelsEmailResponse> response = api.emailRouterSendEmailWithTemplate(xSubAccountApiKey, body);
+
+        // TODO: test validations
+    }
+    
 }
